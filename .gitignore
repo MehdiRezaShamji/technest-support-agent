@@ -1,0 +1,7 @@
+conversation.json
+tickets.json
+escalations.json
+errors.log
+.env
+venv/
+__pycache__/

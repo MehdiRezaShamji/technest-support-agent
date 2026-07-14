@@ -1,0 +1,122 @@
+{
+    "TN1001": {
+        "customer": "Aarav Sharma",
+        "product": "Apple AirPods Pro (2nd Gen)",
+        "status": "Delivered",
+        "tracking_id": "TRK93847291",
+        "estimated_delivery": "Delivered on 8 Jul 2026",
+        "delivery_date": "2026-07-08"
+    },
+    "TN1002": {
+        "customer": "Priya Patel",
+        "product": "Samsung Galaxy S25",
+        "status": "Out for Delivery",
+        "tracking_id": "TRK84729163",
+        "estimated_delivery": "Today by 8:00 PM",
+        "delivery_date": "2026-07-11"
+    },
+    "TN1003": {
+        "customer": "Rahul Mehta",
+        "product": "Logitech MX Master 3S",
+        "status": "Shipped",
+        "tracking_id": "TRK72819364",
+        "estimated_delivery": "13 Jul 2026",
+        "delivery_date": "2026-07-13"
+    },
+    "TN1004": {
+        "customer": "Neha Gupta",
+        "product": "Sony WH-1000XM6",
+        "status": "Processing",
+        "tracking_id": null,
+        "estimated_delivery": "15 Jul 2026",
+        "delivery_date": "2026-07-15"
+    },
+    "TN1005": {
+        "customer": "Aditya Singh",
+        "product": "ASUS ROG Strix G16 Gaming Laptop",
+        "status": "Packed",
+        "tracking_id": "TRK56182930",
+        "estimated_delivery": "14 Jul 2026",
+        "delivery_date": "2026-07-14"
+    },
+    "TN1006": {
+        "customer": "Fatima Khan",
+        "product": "Apple Watch Series 11",
+        "status": "Payment Confirmed",
+        "tracking_id": null,
+        "estimated_delivery": "16 Jul 2026",
+        "delivery_date": "2026-07-16"
+    },
+    "TN1007": {
+        "customer": "Rohan Verma",
+        "product": "Kindle Paperwhite",
+        "status": "Awaiting Payment",
+        "tracking_id": null,
+        "estimated_delivery": null,
+        "delivery_date": null
+    },
+    "TN1008": {
+        "customer": "Sneha Iyer",
+        "product": "OnePlus Buds Pro 3",
+        "status": "Cancelled",
+        "tracking_id": null,
+        "estimated_delivery": null,
+        "delivery_date": null
+    },
+    "TN1009": {
+        "customer": "Vivek Nair",
+        "product": "Samsung T9 Portable SSD 2TB",
+        "status": "Return in Progress",
+        "tracking_id": "RET91827364",
+        "estimated_delivery": "Refund after inspection",
+        "delivery_date": "2026-07-09"
+    },
+    "TN1010": {
+        "customer": "Kavya Joshi",
+        "product": "Nintendo Switch OLED",
+        "status": "Refund Completed",
+        "tracking_id": null,
+        "estimated_delivery": "Refund credited on 10 Jul 2026",
+        "delivery_date": "2026-07-10"
+    },
+    "TN1011": {
+        "customer": "Imran Shaikh",
+        "product": "Anker 100W GaN Charger",
+        "status": "Delayed",
+        "tracking_id": "TRK47382910",
+        "estimated_delivery": "16 Jul 2026",
+        "delivery_date": "2026-07-16"
+    },
+    "TN1012": {
+        "customer": "Pooja Desai",
+        "product": "iPad Air M3",
+        "status": "Delivery Attempt Failed",
+        "tracking_id": "TRK18273645",
+        "estimated_delivery": "Second attempt on 12 Jul 2026",
+        "delivery_date": "2026-07-12"
+    },
+    "TN1013": {
+        "customer": "Arjun Rao",
+        "product": "JBL Flip 7 Bluetooth Speaker",
+        "status": "Ready for Pickup",
+        "tracking_id": "PICK63728190",
+        "estimated_delivery": "Pickup before 15 Jul 2026",
+        "delivery_date": "2026-07-15"
+    },
+    "TN1014": {
+        "customer": "Meera Kapoor",
+        "product": "Dell UltraSharp 27 4K Monitor",
+        "status": "Backordered",
+        "tracking_id": null,
+        "estimated_delivery": "22 Jul 2026",
+        "delivery_date": "2026-07-22"
+    },
+    "TN1015": {
+        "customer": "Karan Malhotra",
+        "product": "Steam Deck OLED 512GB",
+        "status": "Order Placed",
+        "tracking_id": null,
+        "estimated_delivery": "17 Jul 2026",
+        "delivery_date": "2026-07-17"
+    }
+}
