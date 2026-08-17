@@ -96,7 +96,7 @@ class Agent:
             url="https://api.groq.com/openai/v1/chat/completions",
             headers={"Authorization": "Bearer " + api_key},
             json={
-                "model": "llama-3.3-70b-versatile",
+                "model": "openai/gpt-oss-120b",
                 "messages": self.conversation,
                 "tools": self.tool_schema,
             },

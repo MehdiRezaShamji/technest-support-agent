@@ -10,8 +10,6 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    # Tighten this to your actual frontend origin once deployed,
-    # e.g. ["https://your-frontend.vercel.app"]
     allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
@@ -29,8 +27,6 @@ class ChatResponse(BaseModel):
     tool_used: str | None = None
 
 
-# One Agent per session_id, so concurrent users don't share memory.
-# NOTE: resets on server restart — fine for a demo, swap for a real DB later.
 sessions: dict[str, Agent] = {}
 
 
@@ -63,7 +59,6 @@ def chat(req: ChatRequest):
 
         if call_llm_result.get("tool_calls"):
             agent.run_tool(call_llm_result)
-            # remember the last tool name used this turn, to surface in the UI
             tool_used = call_llm_result["tool_calls"][-1]["function"]["name"]
         else:
             return ChatResponse(
