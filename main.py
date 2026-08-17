@@ -168,5 +168,6 @@ class Agent:
                         break
 
 
-my_agent = Agent()
-my_agent.loop()
+if __name__ == "__main_-":
+    my_agent = Agent()
+    my_agent.loop()
