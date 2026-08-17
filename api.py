@@ -1,21 +1,3 @@
-"""
-FastAPI wrapper for the TechNest Support Agent, built on top of your
-existing Agent class in main.py.
-
-Fixes vs. a single shared `agent = Agent()`:
-- One Agent instance per session_id (sessions dict below), so concurrent
-  users don't share conversation history.
-- /chat returns a JSON object {reply, tool_used, session_id} instead of a
-  bare string, since the frontend reads data.reply / data.tool_used.
-- CORS enabled so a browser-based frontend on a different origin can call this.
-- Retry loop restored (matches the "Automatic retry for failed LLM requests"
-  feature from your README) instead of failing on the first bad response.
-- /health added for the frontend's connection-status indicator.
-
-Run locally: uvicorn api:app --reload
-On Render:   uvicorn api:app --host 0.0.0.0 --port $PORT
-"""
-
 from uuid import uuid4
 
 from fastapi import FastAPI, HTTPException
