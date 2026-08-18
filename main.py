@@ -16,7 +16,7 @@ from tools.escalate_to_human import escalate_to_human, escalate_to_human_schema
 
 load_dotenv()
 api_key = os.getenv("GROQ_API_KEY")
-filename = "conversation.json"
+
 
 system_prompt = """
 You are a helpful customer support agent working at a company called TechNest. 
@@ -42,7 +42,8 @@ Escalate to a human if any of the following occur:
 
 class Agent:
 
-    def __init__(self):
+    def __init__(self, session_id):
+        self.filename = f"conversation_{session_id}.json"
         self.conversation = self.load_memory()
         if not (
             self.conversation
@@ -52,7 +53,7 @@ class Agent:
                 "content": system_prompt,
             }
         ):
-            self.conversation.append({"role": "system", "content": system_prompt})
+            self.conversation.insert(0, {"role": "system", "content": system_prompt})
 
         self.tools = {}
         self.tool_schema = []
@@ -76,8 +77,8 @@ class Agent:
         )
 
     def load_memory(self):
-        if os.path.exists(filename):
-            with open(filename, "r") as file:
+        if os.path.exists(self.filename):
+            with open(self.filename, "r") as file:
                 try:
                     data = json.load(file)
                     return data
@@ -127,7 +128,7 @@ class Agent:
             )
 
     def save_memory(self):
-        with open(filename, "w") as file:
+        with open(self.filename, "w") as file:
             json.dump(self.conversation, file, indent=2)
 
     def loop(self):

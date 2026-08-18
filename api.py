@@ -32,7 +32,7 @@ sessions: dict[str, Agent] = {}
 
 def get_agent(session_id: str) -> Agent:
     if session_id not in sessions:
-        sessions[session_id] = Agent()
+        sessions[session_id] = Agent(session_id)
     return sessions[session_id]
 
 

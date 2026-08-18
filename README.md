@@ -2,7 +2,7 @@
 
 A tool-calling AI customer support agent built from scratch in Python for a fictional electronics store.
 
-The project demonstrates core AI agent concepts including **LLM tool calling, agentic loops, persistent conversation memory, dynamic tool registration, retry/error handling, session-based API access, and modular software design** — without relying on agent frameworks such as LangChain or LangGraph.
+The project demonstrates core AI agent concepts including **LLM tool calling, agentic loops, persistent session-based memory, dynamic tool registration, retry/error handling, REST API development with FastAPI, and modular software design** — without relying on agent frameworks such as LangChain or LangGraph.
 
 ## Live Demo
 
@@ -18,11 +18,12 @@ The project demonstrates core AI agent concepts including **LLM tool calling, ag
 * Refund eligibility checking
 * Support ticket creation
 * Human escalation
-* Persistent conversation memory
-* Session-based conversations through FastAPI
+* Session-specific persistent conversation memory
+* FastAPI REST API
+* Session-based conversations
 * Automatic retry for failed LLM requests
 * Error logging for failed API calls
-* REST API for frontend integration
+* Frontend ↔ backend integration
 * CORS support for web frontend integration
 
 ## Architecture
@@ -129,9 +130,17 @@ Tools are dynamically registered through the `register_tool()` method instead of
 
 This makes it easier to add new capabilities without modifying the core agent loop.
 
-### Persistent Memory
+### Session-Specific Persistent Memory
 
-Conversation history is stored locally in `conversation.json` and restored when the application starts.
+Each conversation session has its own conversation history.
+
+The agent uses the session ID to create a dedicated memory file:
+
+```text
+conversation_<session_id>.json
+```
+
+This prevents different user sessions from sharing the same conversation history.
 
 ### Agentic Tool-Calling Loop
 
@@ -243,13 +252,15 @@ The FastAPI backend can then be connected to the frontend application.
 
 ## Local Runtime Files
 
-The following files are generated locally and are excluded from Git:
+The following files are generated locally and excluded from Git through `.gitignore`:
 
-* `conversation.json` — stores conversation memory
+* `conversation_*.json` — stores session-specific conversation memory
 * `tickets.json` — stores created support tickets
 * `escalations.json` — stores human escalation records
 * `errors.log` — stores API errors
 * `.env` — stores environment variables and API credentials
+* `venv/` — local Python virtual environment
+* `__pycache__/` — Python cache files
 
 ## Known Limitations
 
@@ -269,4 +280,3 @@ The following files are generated locally and are excluded from Git:
 * Add semantic search over product documentation
 * Introduce asynchronous tool execution
 * Add monitoring and analytics
-* Deploy the complete backend infrastructure

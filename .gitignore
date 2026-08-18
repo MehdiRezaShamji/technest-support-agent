@@ -1,4 +1,4 @@
-conversation.json
+conversation_*.json
 tickets.json
 escalations.json
 errors.log
