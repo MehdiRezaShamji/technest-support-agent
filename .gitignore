@@ -5,3 +5,4 @@ errors.log
 .env
 venv/
 __pycache__/
+conversation.json
