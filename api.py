@@ -1,5 +1,6 @@
+import os
+import json
 from uuid import uuid4
-
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -61,6 +62,7 @@ def chat(req: ChatRequest):
             agent.run_tool(call_llm_result)
             tool_used = call_llm_result["tool_calls"][-1]["function"]["name"]
         else:
+            agent.save_memory()
             return ChatResponse(
                 session_id=session_id,
                 reply=call_llm_result["content"],
@@ -71,3 +73,34 @@ def chat(req: ChatRequest):
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+
+@app.get("/conversations")
+def get_conversations():
+    conversations = []
+
+    for filename in os.listdir("."):
+        if filename.startswith("conversation_") and filename.endswith(".json"):
+            session_id = filename[len("conversation_") : -len(".json")]
+
+            conversations.append(
+                {
+                    "session_id": session_id,
+                    "conversation": f"/conversation/{session_id}",
+                }
+            )
+
+    return {"total_conversations": len(conversations), "conversations": conversations}
+
+
+@app.get("/conversation/{session_id}")
+def get_conversation(session_id: str):
+    filename = f"conversation_{session_id}.json"
+
+    if not os.path.exists(filename):
+        raise HTTPException(status_code=404, detail="Conversation not found")
+
+    with open(filename, "r") as file:
+        conversation = json.load(file)
+
+    return {"session_id": session_id, "conversation": conversation}
